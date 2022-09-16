@@ -141,5 +141,16 @@ pub fun main(account: Address): BetAuth.Bet {
 
 ```
 
+### Chapter 3 - Day 1 
 
+note: work in progress 
 
+In Cadence, structs are merely containers of data. You can copy, overwrite, and create them whenever you want.
+
+Not true for resources. Here are some important facts that define resources:
+
+- They cannot be copied
+- They cannot be lost (or overwritten)
+- They cannot be created whenever you want
+- You must be extremely explicit about how you handle a resource (for example, moving them)
+- Resources are harder to deal with
