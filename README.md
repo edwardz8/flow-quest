@@ -58,22 +58,21 @@ transaction(myNewNumber: Int) {
 
 ### Chapter 2 - Day 3 
 
-var flowCadenceCode: String = "isCool"
-var people: [String] = ["Zach", "Unlimited", "Jacob"] 
-var addresses: [Address] = [0x1, 0x2, 0x3] 
+```
+var people: [String] = ["Soccer", "Hockey", "Football"] 
+log(people)
+```
 
-// index into arrays
+```
+var favSocialMedias: {String: UInt64} = {"Facebook": 0, "Instagram": 4, "Twitter": 1, "Youtube": 2}
+```
 
-var addresses: [Address] = [0x1, 0x2, 0x3]
-log(addresses[0]) // 0x1
-log(addresses[2]) // 0x3
+The ! operator forces the program to read the type params. This happens when a type optional ? isn't provided. This is best practice to do one or the other; not only will the code throw an error but if a called variable isn't present then the program will explode.
 
-// remove element from index 
+We get the error in the image below since the type is neither optional nor is the variable unwrapped. 
 
-var people: [String] = ["Jacob", "Alice", "Damian"]
-people.remove(at: 1)
-log(people) // ["Jacob", "Damian"] 
 
+### Chapter 3 - Day 4 
 
 
 
