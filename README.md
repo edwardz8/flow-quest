@@ -15,7 +15,7 @@ Scripts are code that also have logic within them but it is only a 'view' or
 Safety and Security
 Clarity
 Approachability
-Developer Experience
+Dev Experience
 Resource Oriented Programming
 
 ### Chapter 2 - Day 1
@@ -58,6 +58,8 @@ transaction(myNewNumber: Int) {
 
 ### Chapter 2 - Day 3 
 
+Arrays, Dictionaries, Unwrapping and Optionals 
+
 ```
 var people: [String] = ["Soccer", "Hockey", "Football"] 
 log(people)
@@ -74,12 +76,70 @@ We get the error in the image below since the type is neither optional nor is th
 
 ### Chapter 3 - Day 4 
 
+Structs 
 
+Structs are containers of other types. Structs can only have the pub access modifier.
 
+##### Exercise
 
+Deply new contract with a struct, create a dictionary, create a function that adds to array/dictionary
 
+```
+pub contract BetAuth {
+    pub var bets: {Address: Bet}
+    
+    pub struct Bet {
+        pub let firstName: String
+        pub let teamName: String
+        pub let playerName: String
+        pub let amount: Int
+        pub let account: Address
 
+        init(_firstName: String, _teamName: String, _playerName: String, _amount: Int, _account: Address) {
+            self.firstName = _firstName
+            self.teamName = _teamName
+            self.playerName = _playerName
+            self.amount = _amount
+            self.account = _account
+        }
+    }
 
+    pub fun addBet(firstName: String, teamName: String, playerName: String, amount: Int, account: Address) {
+        let newBet = Bet(_firstName: String, _teamName: String, _playerName: String, _amount: Int, _account: Address)
+        self.bets[account] = newBet
+    }
+
+    init() {
+        self.bets = {}
+    }
+}
+
+```
+
+Add a transaction to call created function
+
+```
+import BetAuth from 0x01
+
+transaction(firstName: String, teamName: String, playerName: String, amount: Int, account: Address) {
+
+    prepare(signer: AuthAccount) {}
+
+    execute {
+        BetAuth.addBet(firstName: String, teamName: String, playerName: String, amount: Int, account: Address)
+        log("We're done.")
+    }
+}
+```
+
+Read defined Struct
+
+```
+pub fun main(account: Address): BetAuth.Bet {
+    return Authentication.bets[account]!
+}
+
+```
 
 
 
