@@ -24,3 +24,63 @@ Resource Oriented Programming
 
 ### Chapter 2 - Day 2 
 
+changeGreeting is the name of a function but we need to import and call the name of the contract 
+
+__AuthAccount__ allows us to access any data in the account (e.g. like paying for the transaction with the account)
+
+Prepare provides access to the information/data of the account. The difference between prepare and execute is execute can't do that. But it can call functions that change the data on the blockchain. Theoretically you don't need the execute method as one could do everything with the prepare method but it makes the code more clear and 'separates' the logic.
+
+Exercise: 
+
+```
+pub contract NumberContract {
+  pub var myNumber: Int 
+  
+  pub fun updateMyNumber(newNumber: Int) {
+     self.myNumber = newNumber 
+  }
+  
+  init() {
+    self.myNumber = 0 
+  }
+}
+
+import NumberContract from Ox
+
+transaction(myNewNumber: Int) {
+ prepare(signer: AuthAccount) {}
+ 
+ execute {
+  NumberContract.updateMyNumber(newNumber: myNewNumber)
+ }
+}
+```
+
+### Chapter 2 - Day 3 
+
+var flowCadenceCode: String = "isCool"
+var people: [String] = ["Zach", "Unlimited", "Jacob"] 
+var addresses: [Address] = [0x1, 0x2, 0x3] 
+
+// index into arrays
+
+var addresses: [Address] = [0x1, 0x2, 0x3]
+log(addresses[0]) // 0x1
+log(addresses[2]) // 0x3
+
+// remove element from index 
+
+var people: [String] = ["Jacob", "Alice", "Damian"]
+people.remove(at: 1)
+log(people) // ["Jacob", "Damian"] 
+
+
+
+
+
+
+
+
+
+
+
